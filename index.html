@@ -3,21 +3,23 @@
 <head><link rel="stylesheet" href="app.css"></head>
 <body>
 
-<h1>Calculate Honey to Level Up bees (Bee Swarm Simulator)</h1>
-<h2>This is a small project made by <span class="myName">Senn</span></h2>
+<div>
+    <h1>Calculate Honey to Level Up bees (Bee Swarm Simulator)</h1>
+    <h2 class="margin5">This is a small project made by <span class="myName">Senn</span></h2>
+</div>
 
-<div id="form">
-    <h3>
-    Bonus Bond From Treats (100 to 110 and 120 to 130):<br>
-    <input type="number" id="bft" value="100" min="100" max="130"><br>
-    From Level (1 to 24):<br>
-    <input type="number" id="lvA" value="1" min="1" max="24"><br>
-    To Level (2 to 25):<br>
-    <input type="number" id="lvB" value="25" min="2" max="25"><br>
-    Number of Bees to Level up (1 to 50):<br>
-    <input type="number" id="noB" value="1" min="1" max="50"><br>
+<div class="noChange">
+    <strong class="tooltip">Bonus Bond From Treats (100 to 110 and 120 to 130):
+        <span class="tooltiptext">You can find your bonus from treats in settings (stats section)</span>
+    </strong>
+    <input type="number" id="bft" value="100" min="100" max="130">
+    <strong>From Level (1 to 24):</strong>
+    <input type="number" id="lvA" value="1" min="1" max="24">
+    <strong>To Level (2 to 25):</strong>
+    <input type="number" id="lvB" value="25" min="2" max="25">
+    <strong>Number of Bees to Level up (1 to 50):</strong>
+    <input type="number" id="noB" value="1" min="1" max="50">
     <button class="myButton" onclick="submit()">Submit</button>
-    </h3>
 </div>
 
 <div id="toBeInserted">

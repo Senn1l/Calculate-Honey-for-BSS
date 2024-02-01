@@ -38,7 +38,7 @@ function honeyForBees(mp, bonus_bft, lvA, lvB, numberOfBeesToLevelUp) {
     let abbreviation = 0;
 
     const myObjectList = {
-        '<h5 class="margin0">Level</h5>': '<h5 class="margin0">Honey to upgrade with <span class="redText">' + bonus_bft + '%</span> bft</h5>',
+        '<h5 class="margin0">Level</h5>': '<h5 class="margin0">Honey to upgrade 1 bee with <span class="redText">' + bonus_bft + '%</span> bft</h5>',
     };
 
     //iterate using entries

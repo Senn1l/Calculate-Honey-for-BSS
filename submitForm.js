@@ -29,14 +29,14 @@ function submit() {
     recreateElementBasedOnId("placeHolder", "p")
     
     //2. Get Inputs and check
-    var bonus_bft = document.getElementById('bft').value;
-    var lvA = document.getElementById('lvA').value;
-    var lvB = document.getElementById('lvB').value;
-    var numberOfBees = document.getElementById('noB').value;
+    var bonus_bft = stringToFloat(document.getElementById('bft').value);
+    var lvA = stringToFloat(document.getElementById('lvA').value);
+    var lvB = stringToFloat(document.getElementById('lvB').value);
+    var numberOfBees = stringToFloat(document.getElementById('noB').value);
     try {
         if (bonus_bft < 100 || (bonus_bft > 110 && bonus_bft < 120) || bonus_bft > 130) throw 101;
         if (checkAppropriateLevel(lvA, lvB)) throw 102;
-        if (numberOfBees < 0 || numberOfBees > 50) throw 103;
+        if (numberOfBees < 1 || numberOfBees > 50) throw 103;
     } catch (errorNumber) {
         if (errorNumber === 101) alert("You didn't input the right BONUS BFT");
         if (errorNumber === 102) alert("You didn't input the right LEVEL");
@@ -55,7 +55,7 @@ function submit() {
 
     totalHoneyRequired.innerHTML = 
     `<h2 class="dotbox margin0">
-    You will need <span class="redText">${(hfbs/numAbb).toFixed(3)}${abb}</span> HONEY
+    You need <span class="redText">${(hfbs/numAbb).toFixed(3)}${abb}</span> HONEY
     in order to LEVEL UP ${numberOfBees}${(numberOfBees === 1 ? " bee" : " bees")}
     FROM LEVEL ${lvA} TO LEVEL ${lvB} with ${bonus_bft}% bft
     </h2>`

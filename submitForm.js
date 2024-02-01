@@ -1,39 +1,64 @@
-function SubmitForm() {
-    var table = document.getElementById("calculateTable");
+function recreateElementBasedOnId(id_attribute, tagName) {
+    //1. remove exist element
+    var oldElement = document.getElementById(id_attribute);
 
-    ////Remove entire table
-    // Check if the table exists
-    if (table) {
-        // Get the parent of the table (in this case, the body element)
-        var parent = table.parentNode;
+    if (oldElement) {
+        //Get the parent of the table (in this case a div)
+        var parent = oldElement.parentNode;
 
-        // Remove the table from its parent
-        parent.removeChild(table);
+        //Remove the element from its parent
+        parent.removeChild(oldElement);
     } else {
-        console.log("Table not found.");
+        //console.log("Element not found.");
     }
-    newTable = document.createElement("table");
-    newTable.setAttribute("id", "calculateTable");
-    document.body.appendChild(newTable);
 
-    //get parameters
+    //2. create new one and set old id to it again
+    var newElement = document.createElement(tagName);
+    newElement.setAttribute("id", id_attribute);
+    newElement.setAttribute("class", "margin0");
+
+    //3. Get the div element by its id and append new element to it
+    var toBeInserted_div = document.getElementById("toBeInserted");
+    toBeInserted_div.append(newElement);
+}
+
+function submit() {
+    //1. Recreate elements
+    recreateElementBasedOnId("totalHoneyRequired", "p");
+    recreateElementBasedOnId("honeyNeededTable", "table");
+    recreateElementBasedOnId("placeHolder", "p")
+    
+    //2. Get Inputs and check
     var bonus_bft = document.getElementById('bft').value;
-    var a = document.getElementById('lvA').value;
-    var b = document.getElementById('lvB').value;
+    var lvA = document.getElementById('lvA').value;
+    var lvB = document.getElementById('lvB').value;
     var numberOfBees = document.getElementById('noB').value;
-
-    //parameters check
     try {
         if (bonus_bft < 100 || (bonus_bft > 110 && bonus_bft < 120) || bonus_bft > 130) throw 101;
-        if (checkAppropriateLevel(a, b)) throw 102;
+        if (checkAppropriateLevel(lvA, lvB)) throw 102;
         if (numberOfBees < 0 || numberOfBees > 50) throw 103;
     } catch (errorNumber) {
         if (errorNumber === 101) alert("You didn't input the right BONUS BFT");
         if (errorNumber === 102) alert("You didn't input the right LEVEL");
         if (errorNumber === 103) alert("You didn't input the right NUMBER OF BEES");
-        //console.log("\nError code: " + errorNumber);
+        console.log("\nError code: " + errorNumber);
         return;
     }
 
-    processTest(bonus_bft, a, b, numberOfBees);
+    //3. Process
+    //3.1. Create table rows by calling hfbs
+    var hfbs = honeyForBees(lv_honey, bonus_bft, lvA, lvB, numberOfBees);
+
+    //3.2. Update totalHoneyRequired element (which is a paragraph)
+    var abb = getAbbreviationString_FromFloatNumber(hfbs);
+    var numAbb = getNumber_FromAbbreviationString(abb);
+
+    totalHoneyRequired.innerHTML = 
+    `<h2 class="dotbox margin0">
+    You will need <span class="redText">${(hfbs/numAbb).toFixed(3)}${abb}</span> HONEY
+    in order to LEVEL UP ${numberOfBees}${(numberOfBees === 1 ? " bee" : " bees")}
+    FROM LEVEL ${lvA} TO LEVEL ${lvB} with ${bonus_bft}% bft
+    </h2>`
+
+    placeHolder.innerHTML = `Just a placeholder`
 }

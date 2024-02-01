@@ -1,5 +1,5 @@
 table {
-    width: 40%;
+    width: 30%;
     border: 1px solid;
     border-collapse: collapse;
     text-align: center;
@@ -16,31 +16,49 @@ tr, td {
 }
 
 td {
-    min-width: 150px;
+    min-width: 100px;
 }
 
 .redText {
     color:red;
 }
 
-.firstRow{
+.margin0{
     margin: 0px;
 }
 
 input[type=number] {
+    color:blue;
     border-radius: 4px;
     padding: 6px 6px;
     width: 10%;
-    min-width: 60px;
-    max-width: 80px;
+    min-width: 70px;
+    max-width: 100px;
+    height: 20px;
     min-height: 10px;
-    max-height: 20px;
-}
-
-input[type=number] {
-    color:blue;
+    max-height: 1000px;
 }
 
 input[type=number]:focus {
     background-color: lightblue;
+}
+
+.myName {
+    color:rgb(63, 83, 196);
+}
+
+.myButton {
+    padding: 5px 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px 0px 0px 0px;
+    cursor: pointer;
+}
+
+.dotbox {
+    border: 2px dashed rgb(238, 153, 6);
+    margin: 0px 0px 10px 0px;
+    padding: 4px 10px;
+    width:fit-content;
 }

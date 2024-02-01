@@ -1,0 +1,46 @@
+table {
+    width: 40%;
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 20px;
+}
+
+table tr:first-child {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+tr, td {
+    border: 1px solid
+}
+
+td {
+    min-width: 150px;
+}
+
+.redText {
+    color:red;
+}
+
+.firstRow{
+    margin: 0px;
+}
+
+input[type=number] {
+    border-radius: 4px;
+    padding: 6px 6px;
+    width: 10%;
+    min-width: 60px;
+    max-width: 80px;
+    min-height: 10px;
+    max-height: 20px;
+}
+
+input[type=number] {
+    color:blue;
+}
+
+input[type=number]:focus {
+    background-color: lightblue;
+}

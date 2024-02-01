@@ -11,7 +11,7 @@ table {
 
 table tr:first-child {
     font-weight: bold;
-    font-size: 26px;
+    font-size: 30px;
 }
 
 body {
@@ -19,6 +19,7 @@ body {
     margin: 0 auto;
     justify-content: center;
     align-items: center;
+    background-color: antiquewhite;
 }
 
 tr, td {
@@ -30,7 +31,7 @@ td {
 }
 
 tr:hover {
-    background-color: antiquewhite;
+    background-color: burlywood;
 }
 
 .redText {
@@ -86,6 +87,7 @@ input[type=number]:focus {
 }
 
 div {
+    font-family: 'Overpass', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;

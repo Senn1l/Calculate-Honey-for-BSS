@@ -33,7 +33,7 @@ function honeyForBees(mp, bonus_bft, lvA, lvB, numberOfBeesToLevelUp) {
     */
     //there was a try - catch error here
 
-    const convertBonus_bft = 1 + bonus_bft * 0.01;
+    const convertBonus_bft = bonus_bft * 0.01;
     let totalHoneyFor1 = 0;
     let abbreviation = 0;
 

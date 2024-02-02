@@ -51,6 +51,7 @@ tr:hover {
 }
 
 input[type=number] {
+    font-family: 'Overpass', sans-serif;
     color:blue;
     border-radius: 4px;
     padding: 6px 6px;
@@ -66,17 +67,20 @@ input[type=number]:focus {
     background-color: lightblue;
 }
 
-.myName {
-    color:rgb(63, 83, 196);
-}
-
 .myButton {
+    font-family: 'Overpass', sans-serif;
     padding: 5px 5px;
     text-align: center;
     display: inline-block;
     margin: auto;
     font-size: 20px;
+    margin-top: 5px;
     cursor: pointer;
+    background-color: azure;
+}
+
+.myButton:hover {
+    background-color: cornflowerblue;
 }
 
 .dotbox {

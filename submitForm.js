@@ -34,14 +34,14 @@ function submit() {
     var lvB = stringToFloat(document.getElementById('lvB').value);
     var numberOfBees = stringToFloat(document.getElementById('noB').value);
     try {
-        if (bonus_bft < 100 || (bonus_bft > 110 && bonus_bft < 120) || bonus_bft > 130) throw 101;
-        if (checkAppropriateLevel(lvA, lvB)) throw 102;
-        if (numberOfBees < 1 || numberOfBees > 50) throw 103;
+        if (isNaN(bonus_bft) || bonus_bft < 100 || (bonus_bft > 110 && bonus_bft < 120) || bonus_bft > 130) throw 101;
+        if (isNaN(lvA) || isNaN(lvB) || checkAppropriateLevel(lvA, lvB)) throw 102;
+        if (isNaN(numberOfBees) || numberOfBees < 1 || numberOfBees > 50) throw 103;
     } catch (errorNumber) {
         if (errorNumber === 101) alert("You didn't input the right BONUS BFT");
         if (errorNumber === 102) alert("You didn't input the right LEVEL");
         if (errorNumber === 103) alert("You didn't input the right NUMBER OF BEES");
-        console.log("\nError code: " + errorNumber);
+        //console.log("\nError code: " + errorNumber);
         return;
     }
 

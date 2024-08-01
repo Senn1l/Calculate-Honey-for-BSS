@@ -21,8 +21,8 @@ const lv_honey = {
     "lv20": "475t",
     "lv21": "4.5qd",
     "lv22": "95qd",
-    "lv23": "5qn",
-    "lv24": "95qn"
+    "lv23": "900qd",
+    "lv24": "9qn"
 };
 
 //check if a character is a number character

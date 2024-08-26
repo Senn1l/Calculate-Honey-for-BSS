@@ -34,7 +34,7 @@ function submit() {
     var lvB = stringToFloat(document.getElementById('lvB').value);
     var numberOfBees = stringToFloat(document.getElementById('noB').value);
     try {
-        if (isNaN(bonus_bft) || bonus_bft < 100 || (bonus_bft > 113 && bonus_bft < 123) || bonus_bft > 133) throw 101;
+        if (isNaN(bonus_bft) || bonus_bft < 100 || (bonus_bft > 113 && bonus_bft < 120) || bonus_bft > 133) throw 101;
         if (isNaN(lvA) || isNaN(lvB) || checkAppropriateLevel(lvA, lvB)) throw 102;
         if (isNaN(numberOfBees) || numberOfBees < 1 || numberOfBees > 50) throw 103;
     } catch (errorNumber) {

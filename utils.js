@@ -66,56 +66,78 @@ function getAbbreviationString_FromNumberString(s) {
     return res;
 }
 
-//convert certain abbreviation strings to double
+// Abbr, value
+const abbreviations = [
+    //["SP", 1e24], // Septillion
+    ["SX", 1e21], // Sextillion
+    ["QN", 1e18], // Quintillion
+    ["QD", 1e15], // Quadrillion
+    ["T",  1e12], // Trillion
+    ["B",  1e9],  // Billion
+    ["M",  1e6],  // Million
+    ["K",  1e3]   // Thousand
+];
+
 function getNumber_FromAbbreviationString(s) {
-    if (s === "SX") {
-        return 1e21;
-    }
-    if (s === "QN") {
-        return 1e18;
-    }
-    if (s === "QD") {
-        return 1e15;
-    }
-    if (s === "T") {
-        return 1e12;
-    }
-    if (s === "B") {
-        return 1e9;
-    }
-    if (s === "M") {
-        return 1e6;
-    }
-    else {
-        return 1e3;
-    }
+    const found = abbreviations.find(([abbr]) => abbr === s);
+    return found ? found[1] : undefined; // Return undefined as default
 }
 
-//convert certain abbreviation strings to double
 function getAbbreviationString_FromFloatNumber(x) {
-    if (x >= 1e21) {
-        return "SX";
-    }
-    if (x >= 1e18) {
-        return "QN";
-    }
-    if (x >= 1e15) {
-        return "QD";
-    }
-    if (x >= 1e12) {
-        return "T";
-    }
-    if (x >= 1e9) {
-        return "B";
-    }
-    if (x >= 1e6) {
-        return "M";
-    }
-    else {
-        return "K";
-    }
+    const found = abbreviations.find(([_, value]) => x >= value);
+    return found ? found[0] : "K"; // Return "K" as default
 }
 
 function checkAppropriateLevel(a, b) {
-    return (a >= b || (a <= 0 || a > 25) || (b < 0 || b > 25));
+    //return (a >= b || (a <= 0 || a > 25) || (b < 0 || b > 25));
+    return (a >= b || (a <= 0 || a > 25));
 }
+
+// function getNumber_FromAbbreviationString(s) {
+//     if (s === "SX") {
+//         return 1e21;
+//     }
+//     if (s === "QN") {
+//         return 1e18;
+//     }
+//     if (s === "QD") {
+//         return 1e15;
+//     }
+//     if (s === "T") {
+//         return 1e12;
+//     }
+//     if (s === "B") {
+//         return 1e9;
+//     }
+//     if (s === "M") {
+//         return 1e6;
+//     }
+//     else {
+//         return 1e3;
+//     }
+// }
+
+// //convert certain abbreviation strings to double
+// function getAbbreviationString_FromFloatNumber(x) {
+//     if (x >= 1e21) {
+//         return "SX";
+//     }
+//     if (x >= 1e18) {
+//         return "QN";
+//     }
+//     if (x >= 1e15) {
+//         return "QD";
+//     }
+//     if (x >= 1e12) {
+//         return "T";
+//     }
+//     if (x >= 1e9) {
+//         return "B";
+//     }
+//     if (x >= 1e6) {
+//         return "M";
+//     }
+//     else {
+//         return "K";
+//     }
+// }
